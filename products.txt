@@ -1,0 +1,6 @@
+Circle Logo T-Shirt:100% Cotton T-Shirt with circle logo:99:10.00:img/tshirt1.png
+Color Bar T-Shirt:100% Cotton T-Shirt with color bar logo:99:10.00:img/tshirt2.png
+Square Logo T-Shirt:100% Cotton T-Shirt with square logo:99:10.00:img/tshirt3.png
+Orbit T-Shirt:100% Cotton T-Shirt with planetary orbit logo:99:10.00:img/tshirt4.png
+Round Sticker:High quality round sticker for laptops, notebooks, etc:99:5.00:img/sticker1.png
+Triangle Sticker:High quality triangle sticker for laptops, notebooks, etc:99:5.00:img/sticker2.png

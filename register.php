@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <title>Assignment #7</title>
+  <link rel='shortcut icon' type='image/x-icon' href='favicon.ico' />
+  <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="index.html">Hack the Pearl Shop</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#" data-toggle="modal" data-target="#registerModal">Register</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" data-toggle="modal" data-target="#loginModal">Login</a>
+        </li>
+      </ul>
+      <form class="form-inline my-2 my-lg-0" method="get" action="search.php">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" name="searchtext" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
+    </div>
+  </nav>
+  <hr>
+  <h1 class="title">Merchandise</h1>
+  <?php
+       $fname = $_POST["firstname"];
+       $lname = $_POST["lastname"];
+       $email = $_POST["registeremail"];
+       $password = $_POST["registerpassword"];
+
+       $filea = fopen("users.txt","a") or die("can't open file");
+       $line= $fname.":".$lname.":".$email.":".$password."\n";
+       fwrite($filea, $line);
+       fclose($filea);
+       echo("<div class='alert alert-success halfsize' role='alert'>
+       Account created successfully!
+       </div>");
+    ?>
+
+  <!-- Register Modal -->
+  <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="registerModalLabel">Register an Account</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <form method="post" action="register.php">
+          <div class="modal-body">
+            <div class="form-group">
+              <label for="firstname">First Name</label>
+              <input type="text" class="form-control" id="firstname" name="firstname" placeholder="Enter first name">
+            </div>
+            <div class="form-group">
+              <label for="lastname">Last Name</label>
+              <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Enter last name">
+            </div>
+            <div class="form-group">
+              <label for="registeremail">Email Address</label>
+              <input type="email" class="form-control" id="registeremail" name="registeremail" placeholder="Enter email">
+            </div>
+            <div class="form-group">
+              <label for="registerpassword">Password</label>
+              <input type="password" class="form-control" id="registerpassword" name="registerpassword" placeholder="Password">
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- Login Modal -->
+  <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="loginModalLabel">Login to your account</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <form method="post" action="login.php">
+          <div class="modal-body">
+            <div class="form-group">
+              <label for="loginemail">Email Address</label>
+              <input type="email" class="form-control" id="loginemail" name="loginemail" placeholder="Enter email">
+            </div>
+            <div class="form-group">
+              <label for="loginpassword">Password</label>
+              <input type="password" class="form-control" id="loginpassword" name="loginpassword" placeholder="Password">
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Shopping content -->
+  <form class="checkoutform" action="store.php" method="post">
+  <div class="content">
+    <div class="flex-item" id="shirt1">
+      <h1 class="itemname">Circle Logo T-Shirt</h1>
+      <img class="productimg" src="img/tshirt1.png" alt="">
+      <div class="productinfo">
+        <h3>$10.00</h3>
+        <p class="text-inline">Quantity: </p> <input id="quantity1" type="number" name="quantity1" value="0" min="0">
+        <br>
+        <p class="text-inline">Subtotal: </p> <input id="subtotal1" type="text" name="subtotal1" value="$0" disabled>
+      </div>
+    </div>
+    <div class="flex-item" id="shirt2">
+      <h1 class="itemname">Color Bar T-Shirt</h1>
+      <img class="productimg"  src="img/tshirt2.png" alt="">
+      <div class="productinfo">
+        <h3>$10.00</h3>
+        <p class="text-inline">Quantity: </p> <input id="quantity2" type="number" name="quantity2" value="0" min="0">
+        <br>
+        <p class="text-inline">Subtotal: </p> <input id="subtotal2" type="text" name="subtotal2" value="$0" disabled>
+      </div>
+    </div>
+    <div class="flex-item" id="shirt3">
+      <h1 class="itemname">Square Logo T-Shirt</h1>
+      <img class="productimg" src="img/tshirt3.png" alt="">
+      <div class="productinfo">
+        <h3>$10.00</h3>
+        <p class="text-inline">Quantity: </p> <input id="quantity3" type="number" name="quantity3" value="0" min="0">
+        <br>
+        <p class="text-inline">Subtotal: </p> <input id="subtotal3" type="text" name="subtotal3" value="$0" disabled>
+      </div>
+    </div>
+    <div class="flex-item" id="shirt4">
+      <h1 class="itemname">Orbit T-Shirt</h1>
+      <img class="productimg" src="img/tshirt4.png" alt="">
+      <div class="productinfo">
+        <h3>$10.00</h3>
+        <p class="text-inline">Quantity: </p> <input id="quantity4" type="number" name="quantity4" value="0" min="0">
+        <br>
+        <p class="text-inline">Subtotal: </p> <input id="subtotal4" type="text" name="subtotal4" value="$0" disabled>
+      </div>
+    </div>
+    <div class="flex-item" id="sticker1">
+      <h1 class="itemname">Round Sticker</h1>
+      <img class="productimg" src="img/sticker1.png" alt="">
+      <div class="productinfo">
+        <h3>$5.00</h3>
+        <p class="text-inline">Quantity: </p> <input id="quantity5" type="number" name="quantity5" value="0" min="0">
+        <br>
+        <p class="text-inline">Subtotal: </p> <input id="subtotal5" type="text" name="subtotal5" value="$0" disabled>
+      </div>
+    </div>
+    <div class="flex-item" id="sticker2">
+      <h1 class="itemname">Triangle Sticker</h1>
+      <img class="productimg" src="img/sticker2.png" alt="">
+      <div class="productinfo">
+        <h3>$5.00</h3>
+        <p class="text-inline">Quantity: </p> <input id="quantity6" type="number" name="quantity6" value="0" min="0">
+        <br>
+        <p class="text-inline">Subtotal: </p> <input id="subtotal6" type="text" name="subtotal6" value="$0" disabled>
+      </div>
+    </div>
+    <div class="large-flex-item" id="payment">
+      <h1 class="itemname">Checkout</h1>
+      <fieldset>
+        <legend>Enter Payment Info</legend>
+
+        <label for="pickup">Shipping Method: </label>
+        <input id="pickup" type="radio" name="shippingmethod" checked="checked" value="pickup">
+        <label for="shiptohome">Pick Up</label>
+        <input id="shiptohome" type="radio" name="shippingmethod" value="shipping">
+        <label for="shiptohome">Ship to Home</label>
+        <br>
+
+        <div class="totals">
+          <div class="labels">
+            <label for="subtotal">Sub-Total: </label>
+            <label for="tax">Tax: </label>
+            <label for="shipping">Shipping: </label>
+            <label for="total">Total: </label>
+          </div>
+
+          <div class="inputs">
+            <input id="subtotal" type="text" name="subtotal" value="$0.00" disabled>
+            <input id="tax" type="text" name="tax" value="$0.00" disabled>
+            <input id="shipping" type="text" name="shipping" value="$0.00" disabled>
+            <input id="total" type="text" name="total" value="$0.00" disabled>
+          </div>
+        </div>
+
+          <div id="paymentinfo">
+
+            <div class="text-input">
+              <label for="fname">Enter Your Name</label>
+              <input type="text" id="fname" name="firstname" placeholder="Full Name">
+            </div>
+
+            <div class="text-input">
+              <label for="phonenumber">Phone Number</label>
+              <input type="text" id="phonenumber" name="phonenumber" placeholder="Phone">
+            </div>
+
+            <div class="text-input">
+              <label for="paymentemail">Email Address</label>
+              <input type="text" id="paymentemail" name="paymentemail" placeholder="Email">
+            </div>
+
+            <div class="text-input">
+              <label for="address">Address</label>
+              <input type="text" id="address" name="address" placeholder="Address">
+            </div>
+
+            <div class="text-input">
+              <label for="city">City</label>
+              <input type="text" id="city" name="city" placeholder="City">
+            </div>
+
+            <div class="text-input">
+              <label for="state">State</label>
+              <select id="state" name="state">
+                <option value="Alabama">Alabama</option>
+                <option value="Alaska">Alaska</option>
+                <option value="Arizona">Arizona</option>
+                <option value="Arkansas">Arkansas</option>
+                <option value="California">California</option>
+                <option value="Colorado">Colorado</option>
+                <option value="Connecticut">Connecticut</option>
+                <option value="Delaware">Delaware</option>
+                <option value="District Of Columbia">District Of Columbia</option>
+                <option value="Florida">Florida</option>
+                <option value="Georgia">Georgia</option>
+                <option value="Hawaii">Hawaii</option>
+                <option value="Idaho">Idaho</option>
+                <option value="Illinois">Illinois</option>
+                <option value="Indiana">Indiana</option>
+                <option value="Iowa">Iowa</option>
+                <option value="Kansas">Kansas</option>
+                <option value="Kentucky">Kentucky</option>
+                <option value="Louisiana">Louisiana</option>
+                <option value="Maine">Maine</option>
+                <option value="Maryland">Maryland</option>
+                <option value="Massachusetts">Massachusetts</option>
+                <option value="Michigan">Michigan</option>
+                <option value="Minnesota">Minnesota</option>
+                <option value="Mississippi">Mississippi</option>
+                <option value="Missouri">Missouri</option>
+                <option value="Montana">Montana</option>
+                <option value="Nebraska">Nebraska</option>
+                <option value="Nevada">Nevada</option>
+                <option value="New Hampshire">New Hampshire</option>
+                <option value="New Jersey">New Jersey</option>
+                <option value="New Mexico">New Mexico</option>
+                <option value="New York">New York</option>
+                <option value="North Carolina">North Carolina</option>
+                <option value="North Dakota">North Dakota</option>
+                <option value="Ohio">Ohio</option>
+                <option value="Oklahoma">Oklahoma</option>
+                <option value="Oregon">Oregon</option>
+                <option value="Pennsylvania">Pennsylvania</option>
+                <option value="Rhode Island">Rhode Island</option>
+                <option value="South Carolina">South Carolina</option>
+                <option value="South Dakota">South Dakota</option>
+                <option value="Tennessee">Tennessee</option>
+                <option value="Texas">Texas</option>
+                <option value="Utah">Utah</option>
+                <option value="Vermont">Vermont</option>
+                <option value="Virginia">Virginia</option>
+                <option value="Washington">Washington</option>
+                <option value="West Virginia">West Virginia</option>
+                <option value="Wisconsin">Wisconsin</option>
+                <option value="Wyoming">Wyoming</option>
+              </select>
+            </div>
+
+            <div class="text-input">
+              <label for="zipcode">Zip Code</label>
+              <input type="text" id="zipcode" name="zipcode" placeholder="Zip Code">
+            </div>
+
+            <div class="text-input">
+              <label for="creditcard">Credit Card Number</label>
+              <input type="text" id="creditcard" name="creditcard" placeholder="Credit Card #">
+            </div>
+          </div>
+
+          <div class="buttons">
+            <input id="submitbutton" type="submit" name="submitbutton" value="Submit">
+            <input id="resetbutton" type="reset" name="resetbutton" value="Reset">
+          </div>
+
+
+      </fieldset>
+    </div>
+  </div>
+  </form>
+  <script src="js/cart.js"></script>
+</body>
+</html>

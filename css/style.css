@@ -1,0 +1,193 @@
+body{
+  /* background: rgb(195,181,34);
+  background: linear-gradient(0deg, rgba(195,181,34,1) 0%, rgba(253,141,45,1) 100%); */
+  background: rgb(33, 39, 41);
+}
+
+p, h1, h2, h3, a, button, legend, label{
+  font-family: 'Roboto', sans-serif;
+}
+
+hr{
+  border: 2px solid rgb(115, 184, 94);
+}
+
+input[type="submit"], input[type="reset"]{
+  width: 150px;
+  background-color: white;
+  border-radius: 10px;
+  color: black;
+  padding: 15px 40px;
+  text-align: center;
+  font-size: 20px;
+  transition: background-color 0.5s;
+  background-color: lightgray;
+}
+
+.title{
+  margin-top: 50px;
+  color: white;
+  text-align: center;
+  font-size: 40px;
+}
+
+input[type="submit"]:hover{
+  cursor: pointer;
+  background-color: green;
+}
+
+input[type="reset"]:hover{
+  cursor: pointer;
+  background-color: red;
+}
+
+.content{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+}
+
+
+.flex-item {
+  width: 600px;
+  height: 600px;
+  background-color: white;
+  text-align: center;
+  border-width: 1px;
+  border-color: black;
+  border-radius: 5px;
+  margin: 5px 5px 5px 5px;
+}
+
+.large-flex-item {
+  min-width: 600px;
+  height: 1000px;
+  background-color: white;
+  text-align: center;
+  border-width: 1px;
+  border-color: black;
+  border-radius: 5px;
+  margin: 5px 5px 5px 5px;
+}
+
+.receipt-item {
+  width: 800px;
+  height: 100%;
+  background-color: white;
+  text-align: center;
+  border-width: 1px;
+  border-color: black;
+  border-radius: 5px;
+  margin: 5px 5px 5px 5px;
+}
+
+.productimg{
+  max-height: 400px;
+  border-radius: 10px;
+}
+
+.text-inline{
+  display: inline;
+}
+
+.extrapadding{
+  padding-right: 30px;
+}
+
+.text-input{
+  width: 100%;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.text-input label{
+  display: block;
+  width: 100%;
+  font-size: 20px;
+}
+
+.text-input input[type=text]{
+  text-align: center;
+  width: 200px;
+  height: 25px;
+  font-size: 15px;
+  border-radius: 5px;
+  border: 1px solid lightgray;
+}
+
+.totals{
+  width: 100%;
+}
+
+.labels{
+  display: inline-block;
+  width: 30%;
+  text-align: left;
+  padding-top: 20px;
+}
+
+.labels label{
+  display: block;
+}
+
+.inputs{
+  display: inline-block;
+  width: 100px;
+  padding-right: 15%;
+}
+
+.inputs input{
+  display: block;
+}
+
+.buttons{
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+fieldset {
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+    border-color: black;
+}
+
+.totals input[type=text], .productinfo input[type=text], .productinfo input[type=number]{
+  width: 100px;
+  border-radius: 5px;
+  border: 1px solid lightgray;
+  margin-bottom: 5px;
+  text-align: right;
+}
+
+
+select{
+  width: 200px;
+}
+
+.halfsize{
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.search-item {
+  width: 800px;
+  height: 220px;
+  background-color: white;
+  text-align: center;
+  border-width: 1px;
+  border-color: black;
+  border-radius: 5px;
+  margin: 5px 5px 5px 5px;
+}
+
+.search-item img{
+  height: 100%;
+  float: left;
+  padding-left: 15px;
+}
